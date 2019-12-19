@@ -1,0 +1,75 @@
+{
+    "name": "HealthTap",
+    "description": "Secure video or text chat with a doctor anywhere, anytime, 24\/7 - get prescriptions, referrals, second opinions and more. Or get trusted answers and tips from tens of thousands of Board Certified doctors now for FREE.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/808-healthtap.jpg",
+    "tags": [
+        "advice",
+        "answers",
+        "api provider",
+        "have api",
+        "healthcare"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/healthtap\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "HealthTap",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/808-healthtap.jpg",
+            "humanURL": "https:\/\/www.healthtap.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/healthtap-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog",
+            "url": "http:\/\/blog.healthtap.com\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/blog.healthtap.com\/feed\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/healthtap"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/healthtap"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/developers.healthtap.com\/"
+        },
+        {
+            "type": "Email",
+            "url": "support@healthtap.com"
+        },
+        {
+            "type": "Email",
+            "url": "dispute-notice@healthtap.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/HealthTap"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/healthtap"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.healthtap.com"
+        }
+    ]
+}
