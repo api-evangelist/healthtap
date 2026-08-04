@@ -1,0 +1,66 @@
+generated: '2026-08-04'
+method: probed
+source: >-
+  DNS resolution of developers.healthtap.com and docs.healthtap.com; live HTTP
+  probes of the healthtap.com estate; HealthTap Cloud launch announcement
+  (Business Wire, 2016-11-02)
+api: null
+notes: >-
+  HealthTap has no live public API and therefore no public API lifecycle
+  surface. What it does have is a RETIRED developer platform, and the retirement
+  is recorded here because the redirect that pointed at it is still live and
+  dangling.
+developer_platform:
+  name: HealthTap Cloud
+  status: retired
+  launched: '2016-11-02'
+  launch_announcement: >-
+    https://www.businesswire.com/news/home/20161102005495/en/HealthTap-Unveils-%E2%80%9CHealthTap-Cloud%E2%84%A2%E2%80%9D-%E2%80%94-Revolutionary-New
+  portal_url: https://developers.healthtap.com/
+  reference_url: https://developers.healthtap.com/reference/
+  offered: >-
+    REST APIs and iOS/Android SDKs over HOPES, HealthTap's health operating
+    system — cross-platform telemedicine (video/voice/text chat embedding),
+    personal health record, and question/answer content modules, gated behind a
+    developer application process.
+  evidence:
+  - kind: dns
+    detail: >-
+      developers.healthtap.com returns NXDOMAIN from both 8.8.8.8 and 1.1.1.1 —
+      no A, AAAA or CNAME record exists.
+    observed: '2026-08-04'
+  - kind: dangling-redirect
+    detail: >-
+      docs.healthtap.com (13.57.163.121, nginx) still answers HTTP 301 for every
+      path with Location https://developers.healthtap.com/reference/, a host
+      that no longer resolves. Any client following the redirect fails.
+    observed: '2026-08-04'
+  - kind: sunset-notice
+    detail: >-
+      No deprecation notice, sunset date, migration guide or successor API was
+      published for HealthTap Cloud. The platform was withdrawn silently.
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  notes: No public API is documented, so no versioning scheme is observable.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No public deprecation or sunset policy. The one developer platform HealthTap
+    did publish was retired without a public notice, and the docs.healthtap.com
+    redirect to it was never cleaned up.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+status_page_notes: >-
+  No status page found. status.healthtap.com does not resolve; no
+  statuspage.io / instatus / better-uptime property is referenced from the site
+  or the Help Center.
+changelog: null
+changelog_notes: >-
+  No API or product changelog. The marketing blog at
+  https://www.healthtap.com/blog/ carries dated posts but is not a change log.
+deprecated_operations: []

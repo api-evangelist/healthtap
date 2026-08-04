@@ -1,0 +1,48 @@
+generated: '2026-08-04'
+method: searched
+probe: true
+url: https://www.healthtap.com/security/
+title: Security and Privacy | HealthTap
+certifications:
+- SOC 2 Type 2
+- HIPAA
+frameworks_referenced:
+- CIS (Center for Internet Security) benchmarks
+- CSA (Cloud Security Alliance) guidance
+controls_published:
+- TLS / HTTPS encryption of communications over public networks
+- Third-party independent penetration testing
+- HIPAA Business Associate posture on behalf of the treating clinicians
+notes: >-
+  HealthTap publishes a consumer-facing "Security and Privacy" page at
+  /security/ that names a SOC 2 Type 2 certification covering its HIPAA
+  compliance, states that it is a Business Associate of the health care
+  professionals on its platform under HIPAA, and describes TLS/HTTPS encryption,
+  third-party penetration testing, and use of CIS and CSA standards for its
+  servers and networks. This is a compliance-posture page, not a full trust
+  center: there is no evidence portal, no downloadable audit report, no
+  subprocessor list, and no vulnerability-disclosure or bug-bounty program (see
+  the note below).
+vulnerability_disclosure: none-found
+vulnerability_disclosure_notes: >-
+  No responsible-disclosure page, no /.well-known/security.txt, no security@
+  contact and no HackerOne / Bugcrowd / Intigriti program was found for
+  HealthTap. The only machine-readable security contact anywhere on the domain
+  is the CAA iodef record, mailto:devops+caa@healthtap.com, which is a
+  certificate-misissuance reporting address and not a vulnerability-disclosure
+  channel. No `Security` pointer is emitted in apis.yml because there is no
+  disclosure policy to point at.
+x-evidence:
+  fetched: '2026-08-04'
+  url: https://www.healthtap.com/security/
+  http_status: 403
+  http_status_note: >-
+    Direct retrieval of the page was not possible from this environment: the
+    healthtap.com Cloudflare zone returns HTTP 403 with a block page to every
+    non-browser client (plain curl, browser user-agent strings, Googlebot,
+    bingbot, facebookexternalhit and Twitterbot were all refused). The page
+    itself is publicly published and search-indexed; the certifications and
+    controls above are recorded from the indexed content of that exact URL. The
+    automated probe (0-working/probe-security-programs.py) therefore returned
+    trust=none — the block, not the absence of a page, is why.
+  probe_result: trust=none (blocked by edge, not absent)

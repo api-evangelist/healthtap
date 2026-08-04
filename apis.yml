@@ -1,7 +1,22 @@
 aid: healthtap
 name: HealthTap
-description: 'HealthTap is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  HealthTap is a United States virtual primary care medical group and telehealth
+  technology company. It operates a nationwide network of board-certified,
+  U.S.-licensed physicians covering all 50 states and Washington, D.C., and
+  delivers video and phone visits for primary care, urgent care, chronic
+  condition management and preventive care, plus 90-day follow-up text messaging
+  with the treating doctor, prescription and lab ordering, and Dr. A.I. symptom
+  triage. It sells direct to consumers on a monthly membership plus a per-visit
+  fee, is in network with commercial and Medicare plans, and is deployed
+  white-labeled or co-branded with employers, health plans, health systems and
+  retailers. HealthTap previously operated a public developer platform,
+  HealthTap Cloud (developers.healthtap.com, launched November 2016), which
+  offered REST APIs and iOS/Android SDKs over its HOPES health operating system;
+  that portal no longer resolves in DNS and HealthTap publishes no public API
+  documentation, OpenAPI, GraphQL, AsyncAPI or MCP surface today. Partner data
+  exchange runs through contracted integrations such as Commure and Health
+  Gorilla. Sector: healthtech.
 url: https://raw.githubusercontent.com/api-evangelist/healthtap/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +27,13 @@ created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Healthtech
+- Telehealth
+- Telemedicine
+- Virtual Care
+- Healthcare
+- Primary Care
+- Digital Health
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +41,43 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/healthtap-domain-security.yml
 - type: Website
+  url: https://www.healthtap.com/
+- type: Blog
+  url: https://www.healthtap.com/blog/
+- type: Support
+  url: https://support.healthtap.com/hc/en-us
+- type: Pricing
+  url: https://www.healthtap.com/features-pricing/
+- type: SignUp
+  url: https://www.healthtap.com/sign_up
+- type: TermsOfService
+  url: https://www.healthtap.com/terms/
+- type: PrivacyPolicy
+  url: https://www.healthtap.com/privacy/statement/
+- type: GitHubOrganization
+  url: https://github.com/HealthTap
+- type: Compliance
+  url: https://www.healthtap.com/security/
+- type: TrustCenter
+  url: security/healthtap-trust-center.yml
+- type: WellKnown
+  url: well-known/healthtap-well-known.yml
+- type: Conformance
+  url: conformance/healthtap-conformance.yml
+- type: Lifecycle
+  url: lifecycle/healthtap-lifecycle.yml
+- type: Packages
+  url: packages/healthtap-packages.yml
+- type: LLMsTxt
+  url: llms/healthtap-llms.txt
+- type: SecondaryMarket
+  name: Forge Global secondary listing
   url: https://forgeglobal.com/healthtap_stock/
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1

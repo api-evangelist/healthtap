@@ -1,0 +1,51 @@
+generated: '2026-08-04'
+method: searched
+source: >-
+  npm registry search; PyPI; RubyGems; pkg.go.dev; Packagist; crates.io;
+  Maven Central; https://github.com/HealthTap
+notes: >-
+  No first-party HealthTap client library or SDK is published on any public
+  package registry. HealthTap's public GitHub organization
+  (https://github.com/HealthTap, 43 public repositories) contains only forks of
+  third-party libraries used internally — AFNetworking, SwiftLint, sass,
+  delayed_job, swagger-ui, swagger-blocks, WebRTC, the Point-Free Swift
+  libraries, react-static and similar — plus two internal service repos
+  (ht-growth-legacy, ht_planout). None is a client SDK for a HealthTap API. The
+  iOS and Android SDKs announced with the 2016 HealthTap Cloud developer
+  platform were distributed through that platform's application process and are
+  no longer obtainable; the portal is retired (see
+  lifecycle/healthtap-lifecycle.yml). No `SDKs` pointer is emitted in apis.yml
+  because no official SDK exists to point at.
+packages: []
+unverified_candidates:
+- name: healthtap-ai-rr
+  registry: npm
+  url: https://www.npmjs.com/package/healthtap-ai-rr
+  latest: 0.28.1
+  published: '2024-07-24'
+  publisher: vefimov
+  official: false
+  reason: >-
+    Name suggests a HealthTap AI package, but the package carries no
+    description, no repository, no homepage, no author field and no keywords,
+    and the publisher account is not attributable to HealthTap. Sibling names
+    healthtap-ai-rr2, healthtap-ai-rr-dev and healthtap-ai-rr2-dev exist from
+    the same publisher, consistent with an internal or experimental artifact.
+    Not recorded as first-party without provenance from HealthTap.
+registries_checked:
+- registry: npm
+  result: no first-party package
+- registry: pypi
+  result: 404 for "healthtap"
+- registry: rubygems
+  result: no results
+- registry: maven-central
+  result: 0 hits for "healthtap"
+- registry: nuget
+  result: 0 hits for "healthtap"
+- registry: pkg.go.dev
+  result: no module matching "healthtap"
+- registry: packagist
+  result: 61 fuzzy hits, none published by or naming HealthTap
+- registry: crates.io
+  result: 0 hits for "healthtap"

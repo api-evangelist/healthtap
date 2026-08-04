@@ -1,0 +1,86 @@
+generated: '2026-08-04'
+method: searched
+source: >-
+  https://www.healthtap.com/security/ (SOC 2 / HIPAA posture);
+  security/healthtap-domain-security.yml (DNS/TLS probe);
+  well-known/healthtap-well-known.yml (discovery probe)
+api: null
+notes: >-
+  HealthTap publishes no machine-readable API contract, so every API-level
+  standard below is asserted from the absence of a public specification rather
+  than from spec content. The organizational compliance claims (HIPAA, SOC 2
+  Type 2) come from HealthTap's own published security page. FHIR-based clinical
+  data exchange is delivered through a partner (Health Gorilla), not as a
+  first-party HealthTap API, so HealthTap is not recorded as a FHIR publisher.
+standards:
+- id: hipaa
+  conforms: true
+  evidence: >-
+    HealthTap states it is a Business Associate of the health care professionals
+    on its platform under HIPAA and holds a SOC 2 Type 2 certification measuring
+    its HIPAA compliance (https://www.healthtap.com/security/).
+- id: soc2-type2
+  conforms: true
+  evidence: Named on https://www.healthtap.com/security/.
+- id: tls
+  conforms: true
+  evidence: >-
+    www.healthtap.com negotiates TLSv1.3; certificate valid to 2027-02-03
+    (security/healthtap-domain-security.yml).
+- id: rfc6844-caa
+  conforms: true
+  evidence: >-
+    healthtap.com publishes CAA records restricting issuance to amazon.com,
+    digicert.com, godaddy.com, letsencrypt.org and pki.goog, with an iodef
+    contact.
+- id: spf
+  conforms: true
+  evidence: SPF record present on healthtap.com.
+- id: dmarc
+  conforms: true
+  evidence: DMARC present with policy p=reject.
+- id: dnssec
+  conforms: false
+  evidence: No DNSSEC on healthtap.com.
+- id: hsts
+  conforms: false
+  evidence: No Strict-Transport-Security header observed on www.healthtap.com.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: No /.well-known/security.txt on any HealthTap host.
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI/Swagger document found on any host root, docs host or API host
+    after probing /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json,
+    /api-docs and /docs.
+- id: graphql
+  conforms: false
+  evidence: No /graphql surface reachable on any HealthTap host.
+- id: asyncapi
+  conforms: false
+  evidence: No public event, streaming or webhook surface is documented.
+- id: mcp
+  conforms: false
+  evidence: No hosted or remote MCP server published.
+- id: a2a
+  conforms: false
+  evidence: >-
+    No agent card at /.well-known/agent-card.json or /.well-known/agent.json on
+    any host.
+- id: oauth2
+  conforms: false
+  evidence: >-
+    No public OAuth surface; no /.well-known/oauth-authorization-server or
+    openid-configuration.
+- id: oidc
+  conforms: false
+- id: fhir
+  conforms: false
+  evidence: >-
+    HealthTap does not publish a first-party FHIR endpoint. FHIR-based clinical
+    data exchange is provided through its Health Gorilla partnership, under that
+    partner's API, not HealthTap's.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No public error contract to evaluate.

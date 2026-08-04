@@ -1,0 +1,124 @@
+generated: '2026-08-04'
+method: probed
+source: live probes of www.healthtap.com, api.healthtap.com, api-us.healthtap.com,
+  support.healthtap.com, docs.healthtap.com and developers.healthtap.com
+notes: >-
+  No /.well-known/ discovery documents are published on any HealthTap host. The
+  healthtap.com Cloudflare zone (www, api, api-us, doctors, support in front of
+  Zendesk) answers HTTP 403 with a ~5 KB HTML block page to every non-browser
+  client — including plain curl, a Chrome/Safari user-agent string, Googlebot,
+  bingbot, facebookexternalhit and Twitterbot user-agents — for every path
+  probed, so no discovery document could be retrieved and none is advertised.
+  The blanket 403 is a bot/edge block, not a per-path signal: identical status
+  and body size are returned for /robots.txt and for every /.well-known/ path.
+  support.healthtap.com serves a genuine 404 behind the block for /.well-known/*
+  and a real 200 for /robots.txt (stock Zendesk Help Center robots).
+  docs.healthtap.com is a bare nginx redirector that 301s every path to
+  https://developers.healthtap.com/reference/ — a host that no longer resolves
+  in DNS (see lifecycle/healthtap-lifecycle.yml).
+x-evidence:
+  fetched: '2026-08-04'
+  edge_block: cloudflare-403-all-non-browser-clients
+hosts:
+- host: https://www.healthtap.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    note: cloudflare block page (text/html)
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+  - path: /robots.txt
+    status: 403
+    note: same block page as every other path — confirms an edge block, not a 404
+- host: https://api.healthtap.com
+  note: CNAME api-us.healthtap.com, fronted by Cloudflare
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+- host: https://api-us.healthtap.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+- host: https://support.healthtap.com
+  note: Zendesk Help Center
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: stock Zendesk Help Center robots.txt (2447 bytes)
+- host: https://docs.healthtap.com
+  note: bare nginx redirector, 301s every path to the dead developers.healthtap.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+  - path: /.well-known/agent-card.json
+    status: 301
+  - path: /.well-known/agent.json
+    status: 301
+  - path: /robots.txt
+    status: 200
+    note: 'User-agent: * / Disallow: /'
+- host: https://developers.healthtap.com
+  note: >-
+    NXDOMAIN — no A/AAAA/CNAME record on 8.8.8.8 or 1.1.1.1. The HealthTap Cloud
+    developer portal is retired; every probe returns a connection failure.
+  documents:
+  - path: /.well-known/agent-card.json
+    status: dns-nxdomain
+  - path: /openapi.json
+    status: dns-nxdomain
+  - path: /llms.txt
+    status: dns-nxdomain
